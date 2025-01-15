@@ -13,7 +13,7 @@ public class SecurityConfig {
         http
                 .csrf().disable() // Disable CSRF for H2 console
                 .authorizeHttpRequests()
-                .requestMatchers("/h2-console/**").authenticated() // Allow H2 console
+                .requestMatchers("/h2-console/**").permitAll() // Allow H2 console
                 .anyRequest().authenticated() // Secure all other endpoints
                 .and()
                 .headers().frameOptions().disable(); // Allow H2 console frames
