@@ -1,6 +1,7 @@
 package com.carservice.carservicebackendservices.controller;
 
 import com.carservice.carservicebackendservices.services.UserService;
+import jakarta.annotation.security.PermitAll;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -15,6 +16,7 @@ public class AuthController {
     private UserService userService;
 
     @PostMapping("/signup")
+    @PermitAll
     public ResponseEntity<?> signup(@RequestBody Map<String, String> request) {
         String mobileNumber = request.get("mobileNumber");
         String email = request.get("email");
